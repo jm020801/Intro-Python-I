@@ -22,3 +22,20 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+
+new_date = datetime(1999, 8, 25).today()
+
+
+def calApp(month=new_date.month, year=new_date.year):
+    global calendar
+    print(calendar.TextCalendar().formatmonth(year, month))
+
+
+try:
+    user_entered = input(
+        "Enter nothing, a month, or in order a month and year separated by comma: ").split(',')
+    calApp(*[int(i) for i in user_entered if user_entered != ['']])
+
+except:
+    print("Enter nothing, a month, or both a month and year separated by comma in that order--do not enter more, or not integers")
